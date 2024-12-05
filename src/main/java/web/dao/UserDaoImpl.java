@@ -15,6 +15,7 @@ public class UserDaoImpl implements UserDao {
     private EntityManager em;
 
     @Override
+    @Transactional(readOnly = true)
     public List<User> getAllUsers() {
         return em.createQuery("select u from User u", User.class).getResultList();
     }

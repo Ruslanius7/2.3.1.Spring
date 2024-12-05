@@ -11,7 +11,6 @@ import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Service
-@Transactional
 public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
@@ -40,25 +39,21 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional(readOnly = true)
     public List<User> getAllUsers() {
         return userDao.getAllUsers();
     }
 
     @Override
-    @Transactional
     public void addUser(User user) {
         userDao.addUser(user);
     }
 
     @Override
-    @Transactional
     public void deleteUser(Long id) {
         userDao.deleteUser(id);
     }
 
     @Override
-    @Transactional
     public void updateUser(User user) {
         userDao.updateUser(user);
     }
